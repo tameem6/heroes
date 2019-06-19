@@ -12,7 +12,5 @@ npm install
 ```
 Finally/ run the command
 ```
-
 ng serve -o
-
 ```
