@@ -9,10 +9,10 @@ import { HEROES } from '../hero-list';
 })
 export class TourHeroesComponent implements OnInit {
   heroes = HEROES;
-  hero: Hero = {
-    id: 1,
-    name: "BloodSeeker"
-  };
+  selectedHero: Hero;
+  onSelect(hero: Hero): void {
+    this.selectedHero = hero;
+  }
   constructor() { }
 
   ngOnInit() {
