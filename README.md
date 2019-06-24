@@ -8,7 +8,6 @@ To run this website on your own machine, fork the repository and clone it on you
 Then run 
 ```
 npm install
-
 ```
 Finally run the command
 ```
