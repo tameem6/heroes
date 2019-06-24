@@ -1,0 +1,21 @@
+a {
+    text-decoration: none;
+    border: 1px solid #369;
+    color: #369;
+    border-radius: 5px;
+    padding: 2px;
+    margin-right: 5px;
+}
+a:visited{
+    text-decoration: none;
+    border-radius: 5px;
+    padding: 2px;
+    
+}
+a:hover{ 
+    background-color: #369;
+    color:white;
+    border-radius: 5px;
+    padding: 2px;
+
+}

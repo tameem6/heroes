@@ -3,21 +3,22 @@ import { Hero } from '../hero';
 import { HeroService } from '../hero.service';
 
 @Component({
-  selector: 'app-tour-heroes',
-  templateUrl: './tour-heroes.component.html',
-  styleUrls: ['./tour-heroes.component.css']
+  selector: 'app-dashboard',
+  templateUrl: './dashboard.component.html',
+  styleUrls: ['./dashboard.component.css']
 })
-export class TourHeroesComponent implements OnInit {
-  heroes: Hero[];
+export class DashboardComponent implements OnInit {
+    heroes: Hero[] =[];
   constructor(private heroService: HeroService) { }
 
   ngOnInit() {
     this.getHeroes();
   }
+
   getHeroes(): void {
     this.heroService.getHeroes()
-      .subscribe(
-          heroes => {this.heroes = heroes;}
-        )
-  };
+      .subscribe(heroes => this.heroes = heroes.slice(1,5));
+  }
 }
+
+
