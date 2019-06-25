@@ -17,21 +17,30 @@ export class HeroService {
     ) { }
 
   getHeroes(): Observable<Hero[]> {
-    this.messageService.add('HeroService: fetched heroes');
+    // this.messageService.add('HeroService: fetched heroes');
     return this.http.get<Hero[]>(this.heroesUrl)
       .pipe(
         tap(_ => this.log('Fetched heroes')),
-        catchError(this.handleError<Hero[]>('getHeroes'),[])
+        catchError(this.handleError<Hero[]>('getHeroes',[]))
       );
   }
   getHero(id: number): Observable<Hero> {
     const url = `${this.heroesUrl}/${id}`;
     //TODO: Send message after getting hero
-    this.messageService.add(`HeroService: fetched hero id=${id}`);
+    // this.messageService.add(`HeroService: fetched hero id=${id}`);
     return this.http.get<Hero>(url).pipe(
       tap(_ => this.log(`fetched hero = ${id}`)),
       catchError(this.handleError<Hero>(`getHero id=${id}`))
     );
+  }
+
+  //Handle http operations that failed
+  private handleError<T>(operation='operation', result? : T){
+    return(error: any): Observable<T> => {
+      console.error(error);
+      this.log(`${operation} failed. ${error.message}`);
+      return of(result as T);
+    }
   }
   /** Log a HeroService message with the MessageService */
   private log(message: string) {
