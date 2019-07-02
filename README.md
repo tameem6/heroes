@@ -13,3 +13,9 @@ Finally run the command
 ```
 ng serve -o
 ```
+Squash 1 commit 
+
+
+Squash 2 commit
+
+Squash 3 commit 
